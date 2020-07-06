@@ -31,7 +31,7 @@ spec:
         image: gcr.io/confluence-275522/nfs-confluence
         ports:
         - containerPort: 2049
-          name: nfs-confluence-test
+          name: nfs-confl-test
         resources:
           limits:
             cpu: ".5"

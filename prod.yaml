@@ -31,7 +31,7 @@ spec:
         image: gcr.io/constellation-275522/nfs-confluence
         ports:
         - containerPort: 2049
-          name: nfs-confluence-prod
+          name: nfs-confl-prod
         resources:
           limits:
             cpu: ".5"
