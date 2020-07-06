@@ -2,7 +2,7 @@ steps:
 
 # This step stops the nfs pod
 - name: 'gcr.io/cloud-builders/kubectl'
-  id: Stop Pod
+  id: Stop Production Pods
   args:
     - 'scale'
     - 'StatefulSet'
@@ -14,6 +14,7 @@ steps:
 
 # This step deploys the application in Kubernetes
 - name: 'gcr.io/cloud-builders/gke-deploy'
+  id: Deploy to Production Environment
   args:
     - run
     - --filename=prod.yaml
@@ -23,7 +24,7 @@ steps:
 
 # This step starts the nfs pod
 - name: 'gcr.io/cloud-builders/kubectl'
-id: Scale Pod
+id: Scale Production Pods
 args:
   - 'scale'
   - 'StatefulSet'

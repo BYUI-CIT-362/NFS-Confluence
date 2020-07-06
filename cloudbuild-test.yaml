@@ -2,7 +2,7 @@ steps:
 
 # This step stops the nfs pod
 - name: 'gcr.io/cloud-builders/kubectl'
-  id: Stop Pod
+  id: Stop Test Pods
   args:
     - 'scale'
     - 'StatefulSet'
@@ -14,6 +14,7 @@ steps:
 
 # This step deploys the application in Kubernetes
 - name: 'gcr.io/cloud-builders/gke-deploy'
+  id: Deploy To Test Environment
   args:
     - run
     - --filename=test.yaml
@@ -23,7 +24,7 @@ steps:
 
 # This step starts the nfs pod
 - name: 'gcr.io/cloud-builders/kubectl'
-id: Scale Pod
+id: Scale Test Pods
 args:
   - 'scale'
   - 'StatefulSet'
