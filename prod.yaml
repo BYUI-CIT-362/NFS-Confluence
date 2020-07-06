@@ -28,10 +28,10 @@ spec:
     spec:
       containers:
       - name: nfs-confluence-prod
-        image: gcr.io/constellation-275522/nfs-constellation
+        image: gcr.io/constellation-275522/nfs-confluence
         ports:
         - containerPort: 2049
-          name: nfs-prod
+          name: nfs-confluence-prod
         resources:
           limits:
             cpu: ".5"

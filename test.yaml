@@ -1,37 +1,37 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nfs-constellation-test
+  name: nfs-confluence-test
   labels:
-    app: nfs-constellation-test
+    app: nfs-confluence-test
 spec:
   ports:
   - port: 2049
-    name: nfs-constellation-test
+    name: nfs-confluence-test
   selector:
-    app: nfs-constellation-test
+    app: nfs-confluence-test
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: nfs-constellation-test
+  name: nfs-confluence-test
 spec:
-  serviceName: nfs-constellation-test
+  serviceName: nfs-confluence-test
   replicas: 1
   selector:
     matchLabels:
-      app: nfs-constellation-test
+      app: nfs-confluence-test
   template:
     metadata:
       labels:
-        app: nfs-constellation-test
+        app: nfs-confluence-test
     spec:
       containers:
-      - name: nfs-dev
-        image: gcr.io/constellation-275522/nfs-constellation
+      - name: nfs-confluence-test
+        image: gcr.io/confluence-275522/nfs-confluence
         ports:
         - containerPort: 2049
-          name: nfs-constellation-test
+          name: nfs-confluence-test
         resources:
           limits:
             cpu: ".5"
@@ -40,7 +40,7 @@ spec:
             cpu: ".25"
             memory: "250Mi"
         volumeMounts:
-        - name: nfs-constellation-test
+        - name: nfs-confluence-test
           mountPath: /nfsshare
         livenessProbe:
           tcpSocket:
@@ -51,7 +51,7 @@ spec:
           privileged: true          
   volumeClaimTemplates:
   - metadata:
-      name: nfs-constellation-test
+      name: nfs-confluence-test
     spec:
       accessModes:
         - ReadWriteOnce
