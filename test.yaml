@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: nfs-confluence-test
-        image: gcr.io/confluence-275522/nfs-confluence
+        image: gcr.io/constellation-275522/nfs-confluence
         ports:
         - containerPort: 2049
           name: nfs-confl-test
