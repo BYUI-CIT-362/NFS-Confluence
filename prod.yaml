@@ -46,7 +46,7 @@ steps:
   args:
     - 'scale'
     - 'StatefulSet'
-    - 'nfs-constellation-prod'
+    - 'nfs-confluence-prod'
     - '--replicas=1'
   env:
     - 'CLOUDSDK_COMPUTE_ZONE=us-east1-b'
