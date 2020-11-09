@@ -28,17 +28,17 @@ spec:
     spec:
       containers:
       - name: nfs-confluence-prod
-        image: gcr.io/cubs-consulting/nfs-confluence
+        image: gcr.io/constellation-275522/nfs-confluence
         ports:
         - containerPort: 2049
-          name: nfs-confl-test
+          name: nfs-confl-prod
         resources:
           limits:
             cpu: ".5"
             memory: "500Mi"
           requests:
-            cpu: ".25"
-            memory: "250Mi"
+            cpu: ".5"
+            memory: "500Mi"
         volumeMounts:
         - name: nfs-confluence-prod
           mountPath: /nfsshare
